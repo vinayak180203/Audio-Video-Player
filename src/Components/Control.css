@@ -1,0 +1,83 @@
+.control_Container {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  flex-direction: column;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.control_Container.show,
+.control_Container:hover {
+  opacity: 1;
+}
+
+.mid__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+}
+
+.buffering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+}
+
+.icon__btn {
+  padding: 0 0.5rem;
+  color: #7dd2fa;
+}
+
+.slider__container {
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.control__box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inner__controls {
+  display: flex;
+  padding: 10px 0;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+span {
+  color: #fff;
+  font-size: rem;
+  width: 10rem;
+}
+
+.second__control {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.leftSide{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+ .rightSide{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
