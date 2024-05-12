@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
-  makeStyles,
   Slider,
-  withStyles,
   Select,
   MenuItem,
   CircularProgress,
@@ -20,48 +18,6 @@ import {
 } from "@material-ui/icons";
 import PictureInPictureIcon from "@mui/icons-material/PictureInPicture";
 import "./Control.css";
-
-const useStyles = makeStyles({
-  volumeSlider: {
-    width: "100px",
-    color: "#9556CC",
-    marginRight: 30,
-  },
-});
-
-const PrettoSlider = withStyles({
-  root: {
-    height: "20px",
-    color: "#9556CC",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  thumb: {
-    height: 20,
-    width: 20,
-    backgroundColor: "#9556CC",
-    border: "2px solid currentColor",
-    marginTop: -3,
-    marginLeft: -12,
-    "&:focus, &:hover, &$active": {
-      boxShadow: "inherit",
-    },
-  },
-  active: {},
-  valueLabel: {
-    left: "calc(-50% + 4px)",
-  },
-  track: {
-    height: 5,
-    borderRadius: 4,
-    width: "100%",
-  },
-  rail: {
-    height: 5,
-    borderRadius: 4,
-  },
-})(Slider);
 
 const Control = ({
   onPlayPause,
@@ -87,8 +43,7 @@ const Control = ({
   onMaximize,
   onMinimize,
   buffer,
-}) => {
-  const classes = useStyles();
+}) => {  
   const [showControls, setShowControls] = useState(false);
 
   useEffect(() => {
@@ -191,14 +146,53 @@ const Control = ({
         </div>
       )}
       <div className="bottom__container">
-        <div className="slider__container">
-          <PrettoSlider
+        <div className="slider__container" style={{
+          height:"1px"
+        }}>
+          <Slider
             min={0}
             max={100}
             value={played * 100}
             onChange={onSeek}
             onChangeCommitted={onSeekMouseUp}
             onMouseDown={onMouseSeekDown}
+            style={{
+              height: "20px",
+              color: "#9556CC",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: -20,
+              marginLeft: -12,
+            }}
+            classes={{
+              thumb: {
+                height: 20,
+                width: 20,
+                backgroundColor: "#9556CC",
+                border: "2px solid currentColor",
+                "&:focus, &:hover, &$active": {
+                  boxShadow: "inherit",
+                },
+              },
+              active: {},
+              valueLabel: {
+                left: "calc(-50% + 4px)",
+              },
+              track: {
+                height: 5,
+                borderRadius: 4,
+                width: "100%",
+                marginTop: -20,
+                marginLeft: -12,
+              },
+              rail: {
+                height: 5,
+                borderRadius: 4,
+                marginTop: -20,
+                marginLeft: -12,
+              },
+            }}
           />
         </div>
         <div className="control__box">
@@ -221,10 +215,14 @@ const Control = ({
             </div>
 
             <Slider
-              className={`${classes.volumeSlider}`}
               onChange={onVolumeChangeHandler}
               value={volume * 100}
               onChangeCommitted={onVolumeSeekUp}
+              style={{
+                width: "100px",
+                color: "#9556CC",
+                marginRight: "30px",
+              }}
             />
             <span>
               {currentTime} / {duration}
