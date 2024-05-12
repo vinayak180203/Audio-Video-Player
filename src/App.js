@@ -1,6 +1,6 @@
 import "./App.css";
 import ReactPlayer from "react-player";
-import { Container } from "@material-ui/core";
+import { Container } from "@mui/material";
 import Control from "./Components/Control";
 import { useState, useRef } from "react";
 import { formatTime } from "./format";

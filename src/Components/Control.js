@@ -4,7 +4,7 @@ import {
   Select,
   MenuItem,
   CircularProgress,
-} from "@material-ui/core";
+} from "@mui/material";
 import {
   FastForward,
   FastRewind,
@@ -15,7 +15,7 @@ import {
   VolumeUp,
   VolumeOff,
   Fullscreen,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import PictureInPictureIcon from "@mui/icons-material/PictureInPicture";
 import "./Control.css";
 
@@ -157,13 +157,11 @@ const Control = ({
             onChangeCommitted={onSeekMouseUp}
             onMouseDown={onMouseSeekDown}
             style={{
-              height: "20px",
+              height: "0.5rem",
               color: "#9556CC",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              marginTop: -20,
-              marginLeft: -12,
             }}
             classes={{
               thumb: {
@@ -183,14 +181,10 @@ const Control = ({
                 height: 5,
                 borderRadius: 4,
                 width: "100%",
-                marginTop: -20,
-                marginLeft: -12,
               },
               rail: {
                 height: 5,
                 borderRadius: 4,
-                marginTop: -20,
-                marginLeft: -12,
               },
             }}
           />
